@@ -1,0 +1,20 @@
+.g-image {
+    vertical-align: super;
+    border-style: none;
+}
+
+/* Start Gallery CSS */
+.thumb {
+    margin-bottom: 15px;
+}
+.thumb:last-child {
+    margin-bottom: 0;
+}
+.thumb figure img { 
+    filter: grayscale(50%); 
+    transition: 0.3s ease-in-out;
+}
+.thumb figure:hover img { 
+    filter: grayscale(0);
+    cursor: pointer;
+}

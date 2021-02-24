@@ -1,0 +1,54 @@
+<!-- nav -->
+<nav class="navbar navbar-expand-lg navbar-light bg-danger navbar-dark sticky-top">
+  <!-- <button class="navbar-toggler d-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+    aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+  <div class="navbar-collapse" id="navbarTogglerDemo01">
+    <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <a class="nav-item nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/gallery" *ngIf="currentUser">Gallery</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-item nav-link" routerLink="/about">About</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item" *ngIf="currentUser">
+          <p class="nav-item nav-link"> <b>Welcome</b>, {{currentUser?.username}}</p>
+          <!-- <a  routerLink="login" *ngIf="!currentUser">Login</a> -->
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link" routerLink="login" *ngIf="!currentUser">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-item nav-link" routerLink="login" *ngIf="currentUser" (click)="logout()">Logout</a>
+        </li>
+      </ul>
+    </form>
+  </div>
+</nav>
+
+<!-- main app container -->
+<div class="jumbotron"  >
+  <div class="container-fluid">
+    <div class="container-fluid">
+      <div class="row d-flex justify-content-lg-center row">
+        <div class="col-sm-4">
+          <app-alert></app-alert>
+        </div>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="text-center mb-4">
+  Demo Gallery App All rights reserved @{{currDate | date: 'yyyy' }}
+</div>
